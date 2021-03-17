@@ -1,0 +1,10 @@
+[helpers]
+
+[default]
+depends = []
+
+[zsh.files]
+"zshrc" = "~/.zshrc"
+
+[i3.files]
+"i3/config" = "~/.config/i3/config"
