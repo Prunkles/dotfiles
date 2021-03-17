@@ -8,3 +8,10 @@ depends = []
 
 [i3.files]
 "root/i3/config" = { target = "~/.config/i3/config", type = "template" }
+
+[polybar.files]
+"root/polybar/config" = "~/.config/polybar/config"
+"root/polybar/launch.sh" = "~/.config/polybar/launch.sh"
+
+[rofi.files]
+"root/rofi/config.rasi" = "~/.config/rofi/config.rasi"
