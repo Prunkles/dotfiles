@@ -4,7 +4,7 @@
 depends = []
 
 [zsh.files]
-"zshrc" = "~/.zshrc"
+"root/zshrc" = "~/.zshrc"
 
 [i3.files]
-"i3/config" = "~/.config/i3/config"
+"root/i3/config" = { target = "~/.config/i3/config", type = "template" }
