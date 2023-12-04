@@ -40,6 +40,7 @@
     pkgs.eza
     pkgs.zoxide
     pkgs.starship
+    pkgs.lazygit
   ];
 
   home.file = {
