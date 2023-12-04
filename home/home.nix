@@ -47,10 +47,7 @@
     ".zshrc".source = ./zshrc;
   };
   xdg.configFile = {
-    "zsh" = {
-      source = ./config/zsh;
-      recursive = true;
-    };
+    "zsh".source = ./config/zsh;
   };
 
   # Let Home Manager install and manage itself.
