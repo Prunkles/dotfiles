@@ -31,10 +31,14 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    #pkgs.zsh
     pkgs.oh-my-zsh
     pkgs.zsh-autosuggestions
     pkgs.zsh-syntax-highlighting
     pkgs.bottom
+    pkgs.bat
+    pkgs.eza
+    pkgs.zoxide
     pkgs.starship
   ];
 
