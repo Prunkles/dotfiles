@@ -49,7 +49,7 @@
   };
   xdg.configFile = {
     "zsh".source = ./config/zsh;
-    "nvim".source = ./config/nvim;
+    "nvim".source = config.lib.file.mkOutOfStoreSymlink ./config/nvim; # https://www.reddit.com/r/NixOS/comments/108fwwh/comment/jiqnv3g/
   };
 
   # Let Home Manager install and manage itself.
