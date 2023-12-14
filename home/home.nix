@@ -31,7 +31,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    #pkgs.zsh
+    pkgs.zsh
     pkgs.oh-my-zsh
     pkgs.zsh-autosuggestions
     pkgs.zsh-syntax-highlighting
