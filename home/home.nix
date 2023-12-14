@@ -49,6 +49,7 @@
   };
   xdg.configFile = {
     "zsh".source = ./config/zsh;
+    "nvim".source = ./config/nvim;
   };
 
   # Let Home Manager install and manage itself.
