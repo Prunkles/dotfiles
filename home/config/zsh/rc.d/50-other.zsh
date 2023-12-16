@@ -8,6 +8,8 @@ alias e="$EDITOR"
 alias cat="bat -p"
 alias ls="eza"
 
+alias lg="lazygit"
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
