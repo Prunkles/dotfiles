@@ -35,6 +35,8 @@
     pkgs.oh-my-zsh
     pkgs.zsh-autosuggestions
     pkgs.zsh-syntax-highlighting
+    pkgs.nix-zsh-completions
+
     pkgs.bottom
     pkgs.bat
     pkgs.eza
