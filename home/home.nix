@@ -44,6 +44,11 @@
     pkgs.starship
     pkgs.lazygit
 
+    pkgs.tmux
+    pkgs.tmuxPlugins.sensible
+    pkgs.tmuxPlugins.catppuccin
+    pkgs.tmuxPlugins.vim-tmux-navigator
+
     pkgs.lua-language-server # For neovim Lua LSP
   ];
 
@@ -54,6 +59,7 @@
   xdg.configFile = {
     "zsh".source = ./config/zsh;
     "nvim".source = config.lib.file.mkOutOfStoreSymlink ./config/nvim; # https://www.reddit.com/r/NixOS/comments/108fwwh/comment/jiqnv3g/
+    "tmux".source = ./config/tmux;
   };
 
   # Let Home Manager install and manage itself.

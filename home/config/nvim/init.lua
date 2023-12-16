@@ -62,6 +62,10 @@ require("lazy").setup({
     },
     { "folke/neodev.nvim", opts = {} },
     -- { "ms-jpq/coq_nvim", branch = "coq" },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
 })
 
 local lspconfig = require("lspconfig")
