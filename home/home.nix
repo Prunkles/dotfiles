@@ -41,6 +41,8 @@
     pkgs.zoxide
     pkgs.starship
     pkgs.lazygit
+
+    pkgs.lua-language-server # For neovim Lua LSP
   ];
 
   home.file = {
