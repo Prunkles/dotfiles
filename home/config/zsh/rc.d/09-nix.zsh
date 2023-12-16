@@ -1,6 +1,4 @@
 
-alias nix="nix --extra-experimental-features nix-command"
-
 fpath=(
     ~/.nix-profile/share/zsh/site-functions
     "${fpath[@]}"

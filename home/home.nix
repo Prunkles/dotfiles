@@ -57,6 +57,7 @@
     ".zshrc".source = ./zshrc;
   };
   xdg.configFile = {
+    "nix".source = ./config/nix;
     "zsh".source = ./config/zsh;
     "nvim".source = config.lib.file.mkOutOfStoreSymlink ./config/nvim; # https://www.reddit.com/r/NixOS/comments/108fwwh/comment/jiqnv3g/
     "tmux".source = ./config/tmux;
