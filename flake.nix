@@ -8,23 +8,28 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."prunkles" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = { nixpkgs, home-manager, flake-utils, ... }:
+    flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
+        packages.homeConfigurations = {
+          "prunkles" = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home/home.nix ];
+            # Specify your home configuration modules here, for example,
+            # the path to your home.nix.
+            modules = [ ./home/home.nix ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
-    };
+            # Optionally use extraSpecialArgs
+            # to pass through arguments to home.nix
+          };
+        };
+      }
+    );
 }
 
