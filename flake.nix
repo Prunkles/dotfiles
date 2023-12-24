@@ -2,34 +2,33 @@
   description = "Home Manager configuration of prunkles";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { nixpkgs, home-manager, flake-utils, ... }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        packages.homeConfigurations = {
-          "prunkles" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
+  outputs = inputs@{ nixpkgs, home-manager, flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" ];
+      perSystem = { pkgs, system, ... }:
+        {
+          # `legacyPackages` because of https://github.com/nix-community/home-manager/issues/3075#issuecomment-1477155995
+          legacyPackages.homeConfigurations = {
+            "prunkles" = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
 
-            # Specify your home configuration modules here, for example,
-            # the path to your home.nix.
-            modules = [ ./home/home.nix ];
+              # Specify your home configuration modules here, for example,
+              # the path to your home.nix.
+              modules = [ ./home/home.nix ];
 
-            # Optionally use extraSpecialArgs
-            # to pass through arguments to home.nix
+              # Optionally use extraSpecialArgs
+              # to pass through arguments to home.nix
+            };
           };
         };
-      }
-    );
+    };
 }
 
