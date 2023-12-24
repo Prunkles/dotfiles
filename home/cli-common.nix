@@ -34,6 +34,7 @@
       fi
     '';
     writeNvimLazyNvimLock = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      $DRY_RUN_CMD mkdir $VERBOSE_ARG -p "$(dirname "$lazyNvimLock")"
       $DRY_RUN_CMD cp $VERBOSE_ARG --no-preserve=mode "${./config/nvim/lazy-lock.json}" "$lazyNvimLock"
     '';
   };
