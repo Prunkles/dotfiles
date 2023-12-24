@@ -66,6 +66,8 @@ require("lazy").setup({
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
+}, {
+    lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
 })
 
 local lspconfig = require("lspconfig")

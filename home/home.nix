@@ -15,6 +15,21 @@
 
   targets.genericLinux.enable = true;
 
+  home.activation = {
+    checkNvimLazyNvimLock = lib.hm.dag.entryBefore ["linkGeneration"] ''
+      lazyNvimLock="$HOME/.local/share/nvim/lazy/lazy-lock.json"
+      if [ -f "$lazyNvimLock" ]; then
+          if ! cmp --silent "${./config/nvim/lazy-lock.json}" "$lazyNvimLock"; then
+              _iError "lazy.nvim lock file at '$lazyNvimLock' already exists and differs from expected. Remove it or update it in dotfiles"
+              exit 1
+          fi
+      fi
+    '';
+    writeNvimLazyNvimLock = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      $DRY_RUN_CMD cp $VERBOSE_ARG --no-preserve=mode "${./config/nvim/lazy-lock.json}" "$lazyNvimLock"
+    '';
+  };
+
   home.packages = [
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -47,6 +62,7 @@
     pkgs.tmuxPlugins.catppuccin
     pkgs.tmuxPlugins.vim-tmux-navigator
 
+    pkgs.neovim
     pkgs.lua-language-server # For neovim Lua LSP
   ];
 
@@ -57,7 +73,7 @@
   xdg.configFile = {
     "nix".source = ./config/nix;
     "zsh".source = ./config/zsh;
-    "nvim".source = config.lib.file.mkOutOfStoreSymlink ./config/nvim; # https://www.reddit.com/r/NixOS/comments/108fwwh/comment/jiqnv3g/
+    "nvim".source = ./config/nvim;
     "tmux".source = ./config/tmux;
   };
 
