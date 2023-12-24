@@ -1,16 +1,4 @@
-{ config, pkgs, ... }:
-let
-  vimPluginPkg = pluginPkg:
-    pkgs.stdenv.mkDerivation {
-      name = "${pluginPkg.name}-lhs-share";
-      dontUnpack = true;
-      installPhase = ''
-        target="$out/share/vim-plugins/${pluginPkg.src.owner}/${pluginPkg.src.repo}"
-        mkdir -p "$(dirname "$target")"
-        ln -s "${pluginPkg}" "$target"
-      '';
-    };
-in {
+{ config, pkgs, lib, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "prunkles";
@@ -59,17 +47,6 @@ in {
     pkgs.tmuxPlugins.catppuccin
     pkgs.tmuxPlugins.vim-tmux-navigator
 
-    pkgs.neovim
-    (vimPluginPkg pkgs.vimPlugins.lazy-nvim) # folke/lazy.nvim
-    (vimPluginPkg pkgs.vimPlugins.neodev-nvim) # folke/neodev-nvim
-    (vimPluginPkg pkgs.vimPlugins.catppuccin-nvim) # catppuccin/nvim
-    (vimPluginPkg pkgs.vimPlugins.nvim-lspconfig) # neovim/nvim-lspconfig
-    (vimPluginPkg pkgs.vimPlugins.nvim-cmp) # hrsh7th/nvim-cmp
-      (vimPluginPkg pkgs.vimPlugins.luasnip) # L3MON4D3/LuaSnip
-      (vimPluginPkg pkgs.vimPlugins.cmp_luasnip) # saadparwaiz1/cmp_luasnip
-      (vimPluginPkg pkgs.vimPlugins.cmp-nvim-lsp) # hrsh7th/cmp-nvim-lsp
-      (vimPluginPkg pkgs.vimPlugins.friendly-snippets) # rafamadriz/friendly-snippets
-    (vimPluginPkg pkgs.vimPlugins.vim-tmux-navigator) # christoomey/vim-tmux-navigator
     pkgs.lua-language-server # For neovim Lua LSP
   ];
 
@@ -80,7 +57,7 @@ in {
   xdg.configFile = {
     "nix".source = ./config/nix;
     "zsh".source = ./config/zsh;
-    "nvim".source = ./config/nvim;
+    "nvim".source = config.lib.file.mkOutOfStoreSymlink ./config/nvim; # https://www.reddit.com/r/NixOS/comments/108fwwh/comment/jiqnv3g/
     "tmux".source = ./config/tmux;
   };
 

@@ -8,42 +8,33 @@ vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
 
 
-local function nixVimPlugin(path) return "~/.nix-profile/share/vim-plugins/" .. path end
 
--- -- Install lazy.nvim
--- local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- if not vim.loop.fs_stat(lazypath) then
---     vim.fn.system({
---         "git", "clone", "--filter=blob:none",
---         "https://github.com/folke/lazy.nvim.git", "--branch=stable",
---         lazypath
---     })
--- end
--- vim.opt.rtp:prepend(lazypath)
-vim.opt.rtp:prepend(nixVimPlugin "folke/lazy.nvim")
+-- Install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git", "clone", "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git", "--branch=stable",
+        lazypath
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
+require("lazy").setup({
     {
-        dir = nixVimPlugin "folke/neodev.nvim",
-        opts = {}
-    },
-    {
-        dir = nixVimPlugin "catppuccin/nvim",
-        name = "catppuccin", priority = 1000,
+        "catppuccin/nvim", name = "catppuccin", priority = 1000,
         config = function ()
             vim.cmd.colorscheme("catppuccin-mocha")
         end
     },
+    { "neovim/nvim-lspconfig" },
     {
-        dir = nixVimPlugin "neovim/nvim-lspconfig",
-    },
-    {
-        dir = nixVimPlugin "hrsh7th/nvim-cmp",
+        "hrsh7th/nvim-cmp",
         dependencies = {
-            { dir = nixVimPlugin "L3MON4D3/LuaSnip" },
-            { dir = nixVimPlugin "saadparwaiz1/cmp_luasnip" },
-            { dir = nixVimPlugin "hrsh7th/cmp-nvim-lsp" },
-            { dir = nixVimPlugin "rafamadriz/friendly-snippets" },
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lsp",
+            "rafamadriz/friendly-snippets",
         },
         config = function(_)
             local cmp = require("cmp")
@@ -69,16 +60,12 @@ local plugins = {
             })
         end
     },
+    { "folke/neodev.nvim", opts = {} },
     -- { "ms-jpq/coq_nvim", branch = "coq" },
     {
-        dir = nixVimPlugin "christoomey/vim-tmux-navigator",
+        "christoomey/vim-tmux-navigator",
         lazy = false,
     },
-}
-
-require("lazy").setup(plugins, {
-    -- NOTE: The lock file is absolutely useless because all plugins are managed by nix, so put it somewhere away from the immutable nix store
-    lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json"
 })
 
 local lspconfig = require("lspconfig")
