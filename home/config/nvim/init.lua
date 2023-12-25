@@ -20,7 +20,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local plugins = {
     {
         "catppuccin/nvim", name = "catppuccin", priority = 1000,
         config = function ()
@@ -66,7 +66,23 @@ require("lazy").setup({
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
-}, {
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.5",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function(_)
+            local builtin = require('telescope.builtin')
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+        end
+    },
+}
+
+require("lazy").setup(plugins, {
     lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
 })
 
