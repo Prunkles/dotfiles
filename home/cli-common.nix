@@ -13,6 +13,7 @@
     pkgs.zoxide
     pkgs.starship
     pkgs.lazygit
+    pkgs.delta
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
@@ -46,6 +47,10 @@
     "zsh".source = ./config/zsh;
     "nvim".source = ./config/nvim;
     "tmux".source = ./config/tmux;
+    "lazygit" = {
+      source = ./config/lazygit;
+      recursive = true; # because there is a mutable ./state.yml file in the configs. See https://github.com/jesseduffield/lazygit/pull/2936
+    };
   };
 }
 
