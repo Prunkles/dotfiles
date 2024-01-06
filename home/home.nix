@@ -20,7 +20,10 @@
   ];
 
   xdg.configFile = {
-    "nix".source = ./config/nix;
+    "nix" = {
+      source = ./config/nix;
+      recursive = true;
+    };
   };
 
   # Let Home Manager install and manage itself.
