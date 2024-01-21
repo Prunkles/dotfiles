@@ -21,7 +21,6 @@
     pkgs.tmuxPlugins.vim-tmux-navigator
 
     pkgs.neovim
-    pkgs.lua-language-server # For neovim Lua LSP
     pkgs.ripgrep
     pkgs.fd
   ];

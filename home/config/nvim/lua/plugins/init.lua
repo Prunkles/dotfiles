@@ -15,6 +15,11 @@ return {
             { 'j-hui/fidget.nvim', opts = {} },
             { 'folke/neodev.nvim', opts = {} },
         },
+        config = function()
+            if vim.fn.executable("nil") == 1 then
+                require("lspconfig").nil_ls.setup({})
+            end
+        end
     },
 
     -- Useful plugin to show you pending keybinds

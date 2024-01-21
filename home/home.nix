@@ -17,6 +17,7 @@
 
   imports = [
     ./cli-common.nix
+    ./dev-common.nix
   ];
 
   xdg.configFile = {
