@@ -39,6 +39,10 @@
                 nil = nil.packages.${system}.nil;
               };
             };
+            "prunkles@generic-server" = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [ ./home/home-generic-server.nix ];
+            };
           };
         };
     };
