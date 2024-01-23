@@ -37,6 +37,3 @@ require('lazy').setup('plugins', {
     lockfile = vim.fn.stdpath('data') .. '/lazy/lazy-lock.json',
 })
 
-local lspconfig = require('lspconfig')
-lspconfig.lua_ls.setup {}
-
