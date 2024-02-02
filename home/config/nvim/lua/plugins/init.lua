@@ -54,13 +54,5 @@ return {
     -- 'gc' to comment visual regions/lines
     { 'numToStr/Comment.nvim', opts = {} },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-        },
-        build = ':TSUpdate',
-    },
-
 }
 

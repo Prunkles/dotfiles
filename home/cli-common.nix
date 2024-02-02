@@ -21,6 +21,7 @@
     pkgs.tmuxPlugins.vim-tmux-navigator
 
     pkgs.neovim
+    pkgs.tree-sitter
     pkgs.ripgrep
     pkgs.fd
   ];
