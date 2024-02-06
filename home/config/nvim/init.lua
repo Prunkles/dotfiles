@@ -13,6 +13,20 @@ vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 vim.o.termguicolors = true
 
+vim.o.list = true
+local default_listchars = 'precedes:·,trail:·'
+local verbose_listchars = 'precedes:·,trail:·,tab:>-,multispace:·'
+vim.o.listchars = default_listchars
+local is_verbose_list_mode = false
+vim.keymap.set('n', '<F5>', function()
+    is_verbose_list_mode = not is_verbose_list_mode
+    if is_verbose_list_mode then
+        vim.o.listchars = verbose_listchars
+    else
+        vim.o.listchars = default_listchars
+    end
+end)
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
