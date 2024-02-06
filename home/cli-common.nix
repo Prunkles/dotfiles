@@ -1,6 +1,8 @@
 { pkgs, lib, ... }:
 {
   home.packages = [
+    pkgs.gcc # For tree-sitter
+
     pkgs.zsh
     pkgs.oh-my-zsh
     pkgs.zsh-autosuggestions
