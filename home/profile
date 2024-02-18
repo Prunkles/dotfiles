@@ -2,9 +2,5 @@
 
 export __HOME_PROFILE_SOURCED=1
 
-export XDG_CURRENT_DESKTOP=awesome                                                            
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export TERM=kitty
-
 #. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 

@@ -46,6 +46,7 @@
   };
 
   home.file = {
+    ".profile".source = ./profile;
     ".zprofile".source = ./zprofile;
     ".zshrc".source = ./zshrc;
   };
