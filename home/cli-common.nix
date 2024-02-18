@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 {
   home.packages = [
+    pkgs.git
     pkgs.gcc # For tree-sitter
 
     pkgs.zsh
