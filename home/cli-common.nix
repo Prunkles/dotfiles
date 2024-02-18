@@ -45,6 +45,7 @@
   };
 
   home.file = {
+    ".zprofile".source = ./zprofile;
     ".zshrc".source = ./zshrc;
   };
   xdg.configFile = {
