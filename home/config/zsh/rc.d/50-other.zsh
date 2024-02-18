@@ -2,7 +2,7 @@
 source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export EDITOR="nvim"
+export EDITOR="$HOME/.nix-profile/bin/nvim"
 alias e="$EDITOR"
 
 alias cat="bat -p"
