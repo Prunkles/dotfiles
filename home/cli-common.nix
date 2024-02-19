@@ -17,6 +17,7 @@
     pkgs.starship
     pkgs.lazygit
     pkgs.delta
+    pkgs.fzf
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
