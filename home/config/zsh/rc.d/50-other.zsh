@@ -8,6 +8,7 @@ alias e="$EDITOR"
 alias cat="bat -p"
 alias ls="eza"
 
+alias lazygit="EDITOR=nvim lazygit" # Because lazygit uses editor based on the hard-coded EDITOR values
 alias lg="lazygit"
 
 export LANG=C.UTF-8 # https://github.com/nix-community/home-manager/issues/3711#issuecomment-1748480665
