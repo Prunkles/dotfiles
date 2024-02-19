@@ -23,6 +23,7 @@
     pkgs.tmuxPlugins.sensible
     pkgs.tmuxPlugins.catppuccin
     pkgs.tmuxPlugins.vim-tmux-navigator
+    pkgs.tmuxPlugins.resurrect
 
     pkgs.neovim
     pkgs.tree-sitter
