@@ -54,5 +54,9 @@ return {
     -- 'gc' to comment visual regions/lines
     { 'numToStr/Comment.nvim', opts = {} },
 
+    {
+        'nvim-tree/nvim-web-devicons'
+    },
+
 }
 
