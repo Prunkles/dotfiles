@@ -1,4 +1,6 @@
-export __HOME_Z_PROFILE_SOURCED=$(( ${__HOME_Z_PROFILE_SOURCED:-0} + 1 ))
+# vim: ft=zsh
+
+export __HOME_ZPROFILE_SOURCED=$(( ${__HOME_ZPROFILE_SOURCED:-0} + 1 ))
 
 emulate sh -c 'source $HOME/.profile'
 
