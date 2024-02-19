@@ -15,3 +15,8 @@ eval "$(starship init zsh)"
 
 eval "$(zoxide init zsh)"
 
+# fzf
+
+source ~/.nix-profile/share/fzf/key-bindings.zsh
+source ~/.nix-profile/share/fzf/completion.zsh
+
