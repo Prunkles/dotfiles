@@ -1,1 +1,4 @@
+export __HOME_Z_PROFILE_SOURCED=$(( ${__HOME_Z_PROFILE_SOURCED:-0} + 1 ))
+
 emulate sh -c 'source $HOME/.profile'
+

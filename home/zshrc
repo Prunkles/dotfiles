@@ -1,4 +1,6 @@
 
+export __HOME_ZSHRC_SOURCED=$(( ${__HOME_ZSHRC_SOURCED:-0} + 1 ))
+
 export PATH="$PATH:$HOME/.local/bin"
 
 # XDG

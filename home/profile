@@ -1,6 +1,6 @@
 # vim: ft=sh
 
-export __HOME_PROFILE_SOURCED=1
+export __HOME_PROFILE_SOURCED=$(( ${__HOME_PROFILE_SOURCED:-0} + 1 ))
 
 #. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 

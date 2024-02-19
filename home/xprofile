@@ -1,6 +1,6 @@
 # vim: ft=sh
 
-export __HOME_X_PROFILE_SOURCED=1
+export __HOME_X_PROFILE_SOURCED=$(( ${__HOME_X_PROFILE_SOURCED:-0} + 1 ))
 
 export XDG_CURRENT_DESKTOP=awesome
 export QT_QPA_PLATFORMTHEME="qt5ct"
