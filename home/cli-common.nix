@@ -5,6 +5,7 @@
     pkgs.gcc # For tree-sitter
 
     pkgs.zsh
+    pkgs.zsh-completions
     pkgs.oh-my-zsh
     pkgs.zsh-autosuggestions
     pkgs.zsh-syntax-highlighting
