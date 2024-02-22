@@ -19,6 +19,7 @@
     pkgs.lazygit
     pkgs.delta
     pkgs.fzf
+    pkgs.jq
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
