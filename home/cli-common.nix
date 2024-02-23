@@ -20,6 +20,7 @@
     pkgs.delta
     pkgs.fzf
     pkgs.jq
+    pkgs.tealdeer
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
