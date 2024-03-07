@@ -1,4 +1,7 @@
 
+export HISTFILE="$XDG_STATE_HOME/zsh/history"
+export HISTSIZE=100000
+
 source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
