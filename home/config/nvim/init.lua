@@ -12,6 +12,7 @@ vim.o.smartcase = true -- -//-
 vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
 vim.o.completeopt = 'menuone,noselect' -- Set completeopt to have a better completion experience
 vim.o.termguicolors = true
+vim.o.scrolloff = 5
 
 vim.o.list = true
 local default_listchars = 'precedes:·,trail:·'
