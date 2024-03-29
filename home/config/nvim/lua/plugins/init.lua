@@ -40,7 +40,16 @@ return {
     {
         -- Set lualine as statusline
         'nvim-lualine/lualine.nvim',
-        opts = {},
+        opts = {
+            sections = {
+                lualine_c = {
+                    {
+                        'filename',
+                        path = 1,
+                    },
+                },
+            },
+        },
 
     },
 
