@@ -21,6 +21,7 @@
     pkgs.fzf
     pkgs.jq
     pkgs.tealdeer
+    pkgs.neofetch
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
