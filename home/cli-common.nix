@@ -2,7 +2,6 @@
 {
   home.packages = [
     pkgs.git
-    pkgs.gcc # For tree-sitter
 
     pkgs.zsh
     pkgs.zsh-completions
@@ -29,11 +28,17 @@
     pkgs.tmuxPlugins.vim-tmux-navigator
     pkgs.tmuxPlugins.resurrect
 
-    pkgs.neovim
     pkgs.tree-sitter
     pkgs.ripgrep
     pkgs.fd
   ];
+
+  programs.neovim = {
+    enable = true;
+    extraPackages = [
+      pkgs.gcc # For treesitter compilation
+    ];
+  };
 
   home.activation = {
     checkNvimLazyNvimLock = lib.hm.dag.entryBefore ["linkGeneration"] ''
