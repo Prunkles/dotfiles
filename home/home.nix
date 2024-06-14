@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "prunkles";
@@ -20,11 +20,9 @@
     ./dev-common.nix
   ];
 
-  xdg.configFile = {
-    "nix" = {
-      source = ./config/nix;
-      recursive = true;
-    };
+  nix = {
+    package = pkgs.nixVersions.nix_2_18;
+    settings.experimental-features = "nix-command flakes repl-flake";
   };
 
   # Let Home Manager install and manage itself.

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home.username = "prunkles";
   home.homeDirectory = "/home/prunkles";
@@ -11,11 +11,9 @@
     ./cli-common.nix
   ];
 
-  xdg.configFile = {
-    "nix" = {
-      source = ./config/nix;
-      recursive = true;
-    };
+  nix = {
+    package = pkgs.nixVersions.nix_2_18;
+    settings.experimental-features = "nix-command flakes repl-flake";
   };
 
   programs.home-manager.enable = true;
