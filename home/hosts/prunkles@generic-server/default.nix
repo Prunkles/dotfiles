@@ -8,7 +8,7 @@
   targets.genericLinux.enable = true;
 
   imports = [
-    ./cli-common.nix
+    ../../cli-common.nix
   ];
 
   nix = {

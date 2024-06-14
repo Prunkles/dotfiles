@@ -16,8 +16,8 @@
   targets.genericLinux.enable = true;
 
   imports = [
-    ./cli-common.nix
-    ./dev-common.nix
+    ../../cli-common.nix
+    ../../dev-common.nix
   ];
 
   nix = {

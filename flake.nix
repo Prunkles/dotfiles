@@ -26,11 +26,11 @@
         {
           # `legacyPackages` because of https://github.com/nix-community/home-manager/issues/3075#issuecomment-1477155995
           legacyPackages.homeConfigurations = {
-            "prunkles" = home-manager.lib.homeManagerConfiguration {
+            "prunkles@p-pc" = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
 
               modules = [
-                ./home/home.nix
+                "${./.}/home/hosts/prunkles@p-pc"
                 ({ ... }: {
                   nix = {
                     registry = {
@@ -48,7 +48,9 @@
             };
             "prunkles@generic-server" = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
-              modules = [ ./home/home-generic-server.nix ];
+              modules = [
+                "${./.}/home/hosts/prunkles@generic-server"
+              ];
             };
           };
         };
