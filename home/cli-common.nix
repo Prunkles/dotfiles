@@ -62,7 +62,10 @@
     ".zshrc".source = ./zshrc;
   };
   xdg.configFile = {
-    "zsh".source = ./config/zsh;
+    "zsh" = {
+      source = ./config/zsh;
+      recursive = true; # To be able to add more files using `xdg.configFile."zsh/rc.d/foo.zsh"`
+    };
     "nvim".source = ./config/nvim;
     "tmux".source = ./config/tmux;
     "lazygit".source = ./config/lazygit;
