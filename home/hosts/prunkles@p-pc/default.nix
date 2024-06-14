@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "prunkles";
@@ -16,14 +16,10 @@
   targets.genericLinux.enable = true;
 
   imports = [
+    ../../modules/nix
     ../../cli-common.nix
     ../../dev-common.nix
   ];
-
-  nix = {
-    package = pkgs.nixVersions.nix_2_18;
-    settings.experimental-features = "nix-command flakes repl-flake";
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

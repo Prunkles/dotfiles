@@ -28,21 +28,11 @@
           legacyPackages.homeConfigurations = {
             "prunkles@p-pc" = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
-
               modules = [
                 "${./.}/home/hosts/prunkles@p-pc"
-                ({ ... }: {
-                  nix = {
-                    registry = {
-                      "nixpkgs".flake = nixpkgs;
-                    };
-                  };
-                })
               ];
-
-              # Optionally use extraSpecialArgs
-              # to pass through arguments to home.nix
-              extraSpecialArgs = { 
+              extraSpecialArgs = {
+                inherit nixpkgs;
                 nil = nil.packages.${system}.nil;
               };
             };
@@ -51,6 +41,9 @@
               modules = [
                 "${./.}/home/hosts/prunkles@generic-server"
               ];
+              extraSpecialArgs = {
+                inherit nixpkgs;
+              };
             };
           };
         };
