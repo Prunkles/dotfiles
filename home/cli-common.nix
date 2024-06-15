@@ -18,7 +18,7 @@
     pkgs.fzf
     pkgs.jq
     pkgs.tealdeer
-    pkgs.neofetch
+    pkgs.fastfetch
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
