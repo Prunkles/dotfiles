@@ -6,6 +6,7 @@
     nil # Nix LSP
     pkgs.nvd
     pkgs.nix-output-monitor
+    pkgs.nix-tree
   ];
 }
 
