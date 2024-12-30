@@ -11,18 +11,12 @@
     };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-
-    nil = {
-      url = "github:oxalica/nil";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, flake-parts, nil, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" ];
-      perSystem = { pkgs, system, ... }:
+      perSystem = { pkgs, ... }:
         {
           # `legacyPackages` because of https://github.com/nix-community/home-manager/issues/3075#issuecomment-1477155995
           legacyPackages.homeConfigurations = {
@@ -33,7 +27,6 @@
               ];
               extraSpecialArgs = {
                 inherit nixpkgs;
-                nil = nil.packages.${system}.nil;
               };
             };
             "prunkles@generic-server" = home-manager.lib.homeManagerConfiguration {

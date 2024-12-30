@@ -1,9 +1,9 @@
-{ pkgs, nil, ... }:
+{ pkgs, ... }:
 {
   home.packages = [
     pkgs.lua-language-server # For neovim Lua LSP
 
-    nil # Nix LSP
+    pkgs.nixd # Nix LSP
     pkgs.nvd
     pkgs.nix-output-monitor
     pkgs.nix-tree
