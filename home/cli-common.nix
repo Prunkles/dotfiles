@@ -19,6 +19,7 @@
     pkgs.jq
     pkgs.tealdeer
     pkgs.fastfetch
+    pkgs.libqalculate
 
     pkgs.tmux
     pkgs.tmuxPlugins.sensible
