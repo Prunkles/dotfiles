@@ -26,7 +26,7 @@ return {
             -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
             auto_install = true,
 
-            hightlight = {
+            highlight = {
                 enable = true,
 
                 -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
