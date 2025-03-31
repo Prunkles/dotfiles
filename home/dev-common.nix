@@ -8,5 +8,11 @@
     pkgs.nix-output-monitor
     pkgs.nix-tree
   ];
+
+  programs.direnv = {
+    enable = true;
+    #enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 }
 
