@@ -87,5 +87,13 @@ return {
           -- '3rd/image.nvim', -- Optional image support in preview window: See `# Preview Mode` for more information
         },
     },
+
+    {
+        'ionide/Ionide-vim',
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'hrsh7th/nvim-cmp',
+        },
+    },
 }
 
