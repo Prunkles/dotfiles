@@ -3,6 +3,7 @@
   imports = [
     ./modules/zsh
     ./modules/nvim
+    ./modules/tmux
   ];
 
   home.packages = [
@@ -21,12 +22,6 @@
     pkgs.fastfetch
     pkgs.libqalculate
 
-    pkgs.tmux
-    pkgs.tmuxPlugins.sensible
-    pkgs.tmuxPlugins.catppuccin
-    pkgs.tmuxPlugins.vim-tmux-navigator
-    pkgs.tmuxPlugins.resurrect
-
     pkgs.ripgrep
     pkgs.fd
   ];
@@ -35,7 +30,6 @@
     ".profile".source = ./profile;
   };
   xdg.configFile = {
-    "tmux".source = ./config/tmux;
     "lazygit".source = ./config/lazygit;
   };
 }
