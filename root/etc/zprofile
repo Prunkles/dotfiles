@@ -1,4 +1,0 @@
-export __ZPROFILE_SOURCED=$(( ${__ZPROFILE_SOURCED:-0} + 1 ))
-
-emulate sh -c 'source /etc/profile'
-
