@@ -33,4 +33,3 @@
     "lazygit".source = ./config/lazygit;
   };
 }
-

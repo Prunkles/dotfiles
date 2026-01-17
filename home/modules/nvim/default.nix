@@ -16,7 +16,7 @@
   };
 
   home.activation = {
-    checkNvimLazyNvimLock = lib.hm.dag.entryBefore ["linkGeneration"] ''
+    checkNvimLazyNvimLock = lib.hm.dag.entryBefore [ "linkGeneration" ] ''
       lazyNvimLock="$HOME/.local/share/nvim/lazy/lazy-lock.json"
       if [ -f "$lazyNvimLock" ]; then
           if ! cmp --silent "${./nvim/lazy-lock.json}" "$lazyNvimLock"; then
@@ -25,10 +25,9 @@
           fi
       fi
     '';
-    writeNvimLazyNvimLock = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    writeNvimLazyNvimLock = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       $DRY_RUN_CMD mkdir $VERBOSE_ARG -p "$(dirname "$lazyNvimLock")"
       $DRY_RUN_CMD cp $VERBOSE_ARG --no-preserve=mode "${./nvim/lazy-lock.json}" "$lazyNvimLock"
     '';
   };
 }
-
