@@ -20,15 +20,6 @@
         {
           # `legacyPackages` because of https://github.com/nix-community/home-manager/issues/3075#issuecomment-1477155995
           legacyPackages.homeConfigurations = {
-            "prunkles@p-pc" = home-manager.lib.homeManagerConfiguration {
-              inherit pkgs;
-              modules = [
-                "${./.}/home/hosts/prunkles@p-pc"
-              ];
-              extraSpecialArgs = {
-                inherit nixpkgs;
-              };
-            };
             "prunkles@generic-server" = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               modules = [
