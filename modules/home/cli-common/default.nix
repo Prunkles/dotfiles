@@ -31,5 +31,7 @@
       home.file = {
         ".profile".source = ./_config/profile;
       };
+
+      programs.yazi.enable = true;
     };
 }
