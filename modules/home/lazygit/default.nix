@@ -10,5 +10,8 @@
       xdg.configFile = {
         "lazygit".source = ./_config/lazygit;
       };
+      programs.zsh.shellAliases = {
+        "lg" = "lazygit";
+      };
     };
 }

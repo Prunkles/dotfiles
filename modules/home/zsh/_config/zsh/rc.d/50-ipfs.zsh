@@ -1,3 +1,0 @@
-
-export IPFS_PATH="$XDG_DATA_HOME/ipfs"
-

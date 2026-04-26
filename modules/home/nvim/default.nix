@@ -33,5 +33,16 @@
           $DRY_RUN_CMD cp $VERBOSE_ARG --no-preserve=mode "${./_config/nvim/lazy-lock.json}" "$lazyNvimLock"
         '';
       };
+
+      programs.zsh = {
+        localVariables = {
+          #"EDITOR" = "$HOME/.nix-profile/bin/nvim";
+          "EDITOR" = "nvim";
+        };
+
+        shellAliases = {
+          "e" = "$EDITOR";
+        };
+      };
     };
 }
