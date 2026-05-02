@@ -25,7 +25,14 @@
         pkgs.fd
       ];
 
-      programs.yazi.enable = true;
+      programs.yazi = {
+        enable = true;
+        settings = {
+          mgr = {
+            sort_by = "natural";
+          };
+        };
+      };
 
       programs.starship = {
         enable = true;
